@@ -1,0 +1,15 @@
+body {
+    padding-top: 70px;
+}
+
+.phonesList .phoneImg {
+    height: 250px;
+}
+.phonesList .phoneName {
+    overflow: hidden;
+    height: 52px;
+}
+.phonesList .phoneSnippet {
+    overflow: hidden;
+    height: 120px;
+}
