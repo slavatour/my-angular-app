@@ -8,11 +8,15 @@ var app = angular.module('app', [
     $routeProvider.
         when('/phones', {
             templateUrl: 'partials/phones.html',
-            controller: 'ProductsList'
+            controller: 'ProductsListController'
         }).
         when('/phones/:id', {
             templateUrl: 'partials/phone.html',
             controller: 'PhoneController'
+        }).
+        when('/shopping-cart', {
+            templateUrl: 'partials/cart.html',
+            controller: 'CartController'
         }).
         otherwise({
             redirectTo: '/phones'

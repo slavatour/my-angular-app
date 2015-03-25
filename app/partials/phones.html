@@ -8,7 +8,7 @@
             <h1>Hello, world!</h1>
             <p>This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.</p>
         </div>
-        <div class="row phonesList" ng-controller="ProductsList">
+        <div class="row phonesList" ng-controller="ProductsListController">
             <div class="col-sm-6 col-md-4" ng-repeat="phone in phones | filter:filterParam">
                 <div class="thumbnail">
                     <span ng-class="{'label label-success': phone.stock, 'label label-default': !phone.stock}">{{phone.stock?"yes":"no"}}</span>
