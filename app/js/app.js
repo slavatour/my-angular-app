@@ -12,7 +12,7 @@ var app = angular.module('app', [
         }).
         when('/phones/:id', {
             templateUrl: 'partials/phone.html',
-            controller: 'MainController'
+            controller: 'PhoneController'
         }).
         otherwise({
             redirectTo: '/phones'
