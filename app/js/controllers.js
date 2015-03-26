@@ -14,5 +14,8 @@ controllers.controller('PhoneController', ['$scope', '$routeParams', function($s
 }]);
 
 controllers.controller('CartController', ['$scope', function($scope){
-    console.log("done");
+
+    $scope.submitCart = function(){
+      console.log("submit", $scope.order);
+    };
 }]);
