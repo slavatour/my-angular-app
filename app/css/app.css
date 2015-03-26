@@ -13,3 +13,8 @@ body {
     overflow: hidden;
     height: 120px;
 }
+
+.titleHeader {
+    background: url('../img/title.jpg') no-repeat;
+    background-size: 100%;
+}

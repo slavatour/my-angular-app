@@ -14,8 +14,14 @@ controllers.controller('PhoneController', ['$scope', '$routeParams', function($s
 }]);
 
 controllers.controller('CartController', ['$scope', function($scope){
-    $scope.continents = [{id:1, continent:'america'},{id:2, continent:'africa'},{id:2, continent:'europe'}]
-
+    $scope.continents = [
+        {id:1, continent:'america'},
+        {id:2, continent:'africa'},
+        {id:2, continent:'europe'}
+    ];
+    $scope.cart = {
+        items: null
+    };
     $scope.submitCart = function(){
       console.log("submit", $scope.order);
     };
