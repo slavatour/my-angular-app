@@ -2,16 +2,10 @@
 
 var controllers = angular.module('controllers', []);
 
-controllers.controller('ProductsListController', ['$scope', '$http', function($scope, $http){
-    $http.get("phones/phones.json").success(function(data){
-        $scope.phones = data;
-    });
+controllers.controller('PhoneController', ['$scope', '$routeParams', '$httpPhone', function($scope, $routeParams, $httpPhone){
+    $httpPhone.getPhone($routeParams.id, $scope);
 }]);
 
-
-controllers.controller('PhoneController', ['$scope', '$routeParams', function($scope, $routeParams){
-    $scope.routeParams = $routeParams;
-}]);
 
 controllers.controller('CartController', ['$scope', function($scope){
     $scope.continents = [

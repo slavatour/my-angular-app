@@ -8,10 +8,27 @@
             <h1>Best phones!</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid beatae culpa debitis dignissimos dolorem facilis in labore necessitatibus nobis nulla odio, provident quae, quasi quisquam repudiandae sit totam voluptas?</p>
         </div>
+
         <div class="row phonesList" ng-controller="ProductsListController">
-            <div class="col-sm-6 col-md-4" ng-repeat="phone in phones | filter:filterParam">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="input-group input-group input-group-sm col-lg-3 pull-right">
+                            <span class="input-group-addon">Products</span>
+                            <select type="text" class="form-control" ng-model="qntProducts">
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                            </select>
+                            <span class="input-group-addon">on page</span>
+                        </div>
+                        {{maxPages}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4" ng-repeat="phone in phones | filter:filterParam | limitTo:qntProducts">
                 <div class="thumbnail">
-                    <span ng-class="{'label label-success': phone.stock, 'label label-default': !phone.stock}">{{phone.stock?"yes":"no"}}</span>
+                    <span ng-class="{'label label-success': phone.stock, 'label label-danger': !phone.stock}">{{phone.stock?"yes":"no"}}</span>
                     <img class="phoneImg" src="{{phone.imageUrl}}" alt="{{phone.name}}">
                     <div class="caption">
                         <h3 class="phoneName">{{phone.name}}</h3>
@@ -21,6 +38,24 @@
                 </div>
             </div><!--/.col-xs-6.col-lg-4-->
         </div><!--/row-->
+        <nav style="text-align: center">
+            <ul class="pagination pagination-sm">
+                <li ng-class="{'disabled':currentPage===0}">
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">5</a></li>
+
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div><!--/.col-xs-12.col-sm-9-->
 
     <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
