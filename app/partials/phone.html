@@ -1,9 +1,90 @@
-<di ng-controller="PhoneController">
-    <h1>{{phoneData.name}}</h1>
-    <p>{{phoneData | json}}</p>
+<div class="row" ng-controller="PhoneController">
+    <div class="col-md-5">
+        <img class="img-thumbnail col-md-12 product-main-photo" src="{{mainPhotoUrl || phoneData.images[0]}}" alt="{{phoneData.name}}"/>
+        <div ng-repeat="imgUrl in phoneData.images">
+            <a class="thumbnail col-md-2 product-photo">
+                <img src="{{ imgUrl }}" alt="{{ phoneData.name }}" ng-click="setMainPhoto(imgUrl)"/>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <h2>{{phoneData.name}}</h2>
+        <p class="text-justify">{{phoneData.description}}</p>
+        <hr/>
+        <button type="button" class="btn btn-xs btn-link">
+            <i class="fa fa-facebook-square fa-4x"></i>
+        </button>
+        <button type="button" class="btn btn-xs btn-link">
+            <i class="fa fa-twitter-square fa-4x"></i>
+        </button>
+        <button type="button" class="btn btn-xs btn-link">
+            <i class="fa fa-google-plus-square fa-4x"></i>
+        </button>
+        <button type="button" class="btn btn-xs btn-link">
+            <i class="fa fa-instagram fa-4x"></i>
+        </button>
+        <button type="button" class="btn btn-xs btn-link">
+            <i class="fa fa-youtube-square fa-4x"></i>
+        </button>
+        <button type="button" class="btn btn-xs btn-link">
+            <i class="fa fa-skype fa-4x"></i>
+        </button>
+    </div>
+
+    <div class="col-lg-3">
+        <div class="thumbnail">
+            <div class="caption">
+                <h2>{{ product.price * product.quantity | currency }}
+                    <small class="text-danger" ng-show="product.oldPrice">
+                        <del>{{ product.oldPrice * product.quantity | currency }}</del>
+                    </small>
+                </h2>
+                <p class="text-success" ng-show="product.oldPrice">
+                    You save: {{ (product.oldPrice - product.price) * product.quantity | currency }}
+                </p>
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="inputQuantity" class="control-label">Qnt:</label>
+                        <input type="number" class="form-control input-sm" id="inputQuantity" ng-model="product.quantity">
+                    </div>
+                </form>
+                <hr/>
+                <p class="text-center">
+                    <a href="#" class="btn btn-success" role="button" title="add to cart"><i class="fa fa-cart-plus fa-2x"></i></a>
+                    <a href="#" class="btn btn-success" role="button" title="with list"><i class="fa fa-heart-o fa-2x"></i></a>
+                    <a href="#" class="btn btn-success" role="button" title="add to compare"><i class="fa fa-files-o fa-2x"></i></a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!--tabs-->
+    <div role="tabpanel" class="col-md-12">
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a></li>
+            <li role="presentation"><a href="#specifications" aria-controls="specifications" role="tab" data-toggle="tab">Specifications</a></li>
+            <li role="presentation"><a href="#video" aria-controls="video" role="tab" data-toggle="tab">Video</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="description">
+                <p>{{phoneData.description}}</p>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="specifications">go</div>
+            <div role="tabpanel" class="tab-pane" id="video">no</div>
+        </div>
+
+    </div>
+
+
+
     <table class="table table-hover table-condensed">
         <tr>
 
         </tr>
     </table>
-</di>
+</div>

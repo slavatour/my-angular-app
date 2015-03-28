@@ -2,11 +2,11 @@
 
 var services = angular.module("services", []);
 
-services.factory('$httpPhone', ['$http', function($http){
-    function getPhone(id, scope) {
+services.factory('$httpPhone', ['$rootScope', '$http', function($rootScope, $http){
+    function getPhone(id) {
         $http.get('phones/'+ id + '.json').
             success(function(data){
-                scope.phoneData = data;
+                $rootScope.phoneData = data;
             }).
             error(function(error){
 

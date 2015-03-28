@@ -1,10 +1,8 @@
 'use strict';
 
-var controllers = angular.module('controllers', []);
+var controllers = angular.module('controllers', ['services']);
 
-controllers.controller('PhoneController', ['$scope', '$routeParams', '$httpPhone', function($scope, $routeParams, $httpPhone){
-    $httpPhone.getPhone($routeParams.id, $scope);
-}]);
+
 
 
 controllers.controller('CartController', ['$scope', function($scope){

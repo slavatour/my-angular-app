@@ -15,14 +15,14 @@
                     <div class="panel-body">
                         <div class="input-group input-group input-group-sm col-lg-3 pull-right">
                             <span class="input-group-addon">Products</span>
-                            <select type="text" class="form-control" ng-model="qntProducts">
+                            <select type="text" class="form-control" ng-model="qntProducts" ng-change="changeQuantity()">
                                 <option value="5">5</option>
                                 <option value="10">10</option>
                                 <option value="20">20</option>
                             </select>
                             <span class="input-group-addon">on page</span>
                         </div>
-                        {{maxPages}}
+                        <!--<h2 ng-bind="Math.ceil(phones.length / qntProducts)"></h2>-->
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                 </div>
             </div><!--/.col-xs-6.col-lg-4-->
         </div><!--/row-->
-        <nav style="text-align: center">
+        <nav class="pagination-container">
             <ul class="pagination pagination-sm">
                 <li ng-class="{'disabled':currentPage===0}">
                     <a href="#" aria-label="Previous">
@@ -46,8 +46,9 @@
                     </a>
                 </li>
 
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">5</a></li>
+                <li ng-repeat="i in getPaginationArray(qntProducts)">
+                    <a href="#">{{ i +1  }}</a>
+                </li>
 
                 <li>
                     <a href="#" aria-label="Next">

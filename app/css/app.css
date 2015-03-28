@@ -1,5 +1,5 @@
 body {
-    padding-top: 70px;
+    padding-top: 90px;
 }
 
 .phonesList .phoneImg {
@@ -17,4 +17,17 @@ body {
 .titleHeader {
     background: url('../img/title.jpg') no-repeat;
     background-size: 100%;
+}
+
+.pagination-container {
+    text-align: center;
+}
+
+.product-main-photo {
+    margin-bottom: 5px;
+}
+
+.product-photo {
+    cursor: pointer;
+    margin-right: 3px;
 }
