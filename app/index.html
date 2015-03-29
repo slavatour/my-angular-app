@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/app.css">
 
+    <script src="bower_components/underscore/underscore-min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
 
@@ -50,7 +51,7 @@
                 <li>
                     <a href="#/shopping-cart">
                         Shopping Cart
-                        <span class="label label-default">3</span>
+                        <span class="label label-default">{{cart.items.length}}</span>
                     </a>
                 </li>
                 <li><a href="#/">Profile</a></li>
@@ -82,5 +83,6 @@
 <script src="js/controllers.js"></script>
 <script src="js/controllers/ProductsListController.js"></script>
 <script src="js/controllers/PhoneController.js"></script>
+<script src="js/controllers/CartController.js"></script>
 </body>
 </html>

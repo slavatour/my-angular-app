@@ -2,6 +2,11 @@ body {
     padding-top: 90px;
 }
 
+/*common styles*/
+.hovered {
+    cursor: pointer;
+}
+
 .phonesList .phoneImg {
     height: 250px;
 }
@@ -30,4 +35,30 @@ body {
 .product-photo {
     cursor: pointer;
     margin-right: 3px;
+}
+
+
+/*cart*/
+.cartItemsList .cartItemImage {
+    /*margin-bottom: 0px;*/
+}
+
+.cartItemsList .cartItem {
+    display: table;
+}
+
+.cartItemsList h3 {
+    margin-top: 30px;
+}
+
+.cartItemsList .cartItemQnt {
+    margin-top: 30px;
+}
+
+.cartItemsList h4 {
+    margin-top: 35px;
+}
+
+.cartItemsList .removeItem {
+    margin-top: 35px;
 }

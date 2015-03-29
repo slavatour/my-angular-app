@@ -1,17 +1,34 @@
 <div class="row" ng-controller="PhoneController">
     <div class="col-md-5">
-        <img class="img-thumbnail col-md-12 product-main-photo" src="{{mainPhotoUrl || phoneData.images[0]}}" alt="{{phoneData.name}}"/>
-        <div ng-repeat="imgUrl in phoneData.images">
+        <img class="img-thumbnail col-md-12 product-main-photo" src="{{mainPhotoUrl || product.images[0]}}" alt="{{product.name}}"/>
+        <div ng-repeat="imgUrl in product.images">
             <a class="thumbnail col-md-2 product-photo">
-                <img src="{{ imgUrl }}" alt="{{ phoneData.name }}" ng-click="setMainPhoto(imgUrl)"/>
+                <img src="{{ imgUrl }}" alt="{{ product.name }}" ng-click="setMainPhoto(imgUrl)"/>
             </a>
         </div>
     </div>
 
     <div class="col-lg-4">
-        <h2>{{phoneData.name}}</h2>
-        <p class="text-justify">{{phoneData.description}}</p>
+        <h2>{{product.name}}</h2>
+        <p class="text-justify">{{product.description}}</p>
+
         <hr/>
+
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 text-muted">Raiting: </label>
+                <div class="col-sm-10 text-warning">
+                    <i class="fa fa-star hovered"></i>
+                    <i class="fa fa-star hovered"></i>
+                    <i class="fa fa-star hovered"></i>
+                    <i class="fa fa-star-o hovered"></i>
+                    <i class="fa fa-star-o hovered"></i>
+                </div>
+            </div>
+        </form>
+
+        <hr/>
+
         <button type="button" class="btn btn-xs btn-link">
             <i class="fa fa-facebook-square fa-4x"></i>
         </button>
@@ -30,6 +47,9 @@
         <button type="button" class="btn btn-xs btn-link">
             <i class="fa fa-skype fa-4x"></i>
         </button>
+        <button type="button" class="btn btn-xs btn-link">
+            <i class="fa fa-github-square fa-4x"></i>
+        </button>
     </div>
 
     <div class="col-lg-3">
@@ -46,12 +66,22 @@
                 <form class="form-inline">
                     <div class="form-group">
                         <label for="inputQuantity" class="control-label">Qnt:</label>
-                        <input type="number" class="form-control input-sm" id="inputQuantity" ng-model="product.quantity">
+                        <input id="inputQuantity"
+                               type="number"
+                               class="form-control input-sm"
+                               ng-model="product.quantity"
+                               ng-change="quantityChangeHandler(product.quantity)">
                     </div>
                 </form>
                 <hr/>
                 <p class="text-center">
-                    <a href="#" class="btn btn-success" role="button" title="add to cart"><i class="fa fa-cart-plus fa-2x"></i></a>
+                    <a href="#"
+                       class="btn btn-success"
+                       role="button"
+                       title="add to cart"
+                       ng-click="addNewItemToCart($event, product)">
+                        <i class="fa fa-cart-plus fa-2x"></i>
+                    </a>
                     <a href="#" class="btn btn-success" role="button" title="with list"><i class="fa fa-heart-o fa-2x"></i></a>
                     <a href="#" class="btn btn-success" role="button" title="add to compare"><i class="fa fa-files-o fa-2x"></i></a>
                 </p>
@@ -64,18 +94,49 @@
 
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab">Description</a></li>
-            <li role="presentation"><a href="#specifications" aria-controls="specifications" role="tab" data-toggle="tab">Specifications</a></li>
-            <li role="presentation"><a href="#video" aria-controls="video" role="tab" data-toggle="tab">Video</a></li>
+            <li role="presentation" class="active">
+                <a href="#description"
+                   aria-controls="description"
+                   role="tab"
+                   data-toggle="tab"
+                   ng-click="switchTab($event)">
+                    Description
+                </a>
+            </li>
+            <li role="presentation">
+                <a href="#specifications"
+                   aria-controls="specifications"
+                   role="tab"
+                   data-toggle="tab"
+                   ng-click="switchTab($event)">
+                    Specifications
+                </a>
+            </li>
+            <li role="presentation">
+                <a href="#video"
+                   aria-controls="video"
+                   role="tab"
+                   data-toggle="tab"
+                   ng-click="switchTab($event)">
+                    Video
+                </a>
+            </li>
         </ul>
 
         <!-- Tab panes -->
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="description">
-                <p>{{phoneData.description}}</p>
+            <div role="tabpanel" class="tab-pane fade in active" id="description">
+                <h2></h2>
+                <p>{{product.description}}</p>
             </div>
-            <div role="tabpanel" class="tab-pane" id="specifications">go</div>
-            <div role="tabpanel" class="tab-pane" id="video">no</div>
+            <div role="tabpanel" class="tab-pane fade" id="specifications">
+                <h2></h2>
+                <p>{{product.name}}</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="video">
+                <h2></h2>
+                <p>{{product.id}}</p>
+            </div>
         </div>
 
     </div>

@@ -1,23 +1,32 @@
 # AngularJS Phone Catalog Tutorial Application
 
-## Overview
+## Running the app during development
 
-This application takes the developer through the process of building a web-application using
-angular. The application is loosely based on the **Google Phone Gallery**, which no longer
-exists. Here is a historical reference: [Google Phone Gallery on WayBack](http://web.archive.org/web/20131215082038/http://www.android.com/devices/).
+- Run `npm start`
+- navigate your browser to `http://localhost:8000/app/index.html` to see the app running in your browser.
 
-Each tagged commit is a separate lesson teaching a single aspect of angular.
+## Running unit tests
 
-The full tutorial can be found at http://docs.angularjs.org/tutorial.
+We recommend using [Jasmine][jasmine] and [Karma][karma] for your unit tests/specs, but you are free
+to use whatever works for you.
 
-## Prerequisites
+- Start Karma with `npm test`
+  - A browser will start and connect to the Karma server. Chrome is the default browser, others can
+  be captured by loading the same url as the one in Chrome or by changing the `test/karma.conf.js`
+  file.
+- Karma will sit and watch your application and test JavaScript files. To run or re-run tests just
+  change any of your these files.
 
-### Git
 
-- A good place to learn about setting up git is [here][git-github].
-- Git [home][git-home] (download, documentation).
+## End to end testing
 
-### Node.js and Tools
+We recommend using [Jasmine][jasmine] and [Protractor][protractor] for end-to-end testing.
 
-- Get [Node.js][node-download].
-- Install the tool dependencies (`npm install`).
+Requires a webserver that serves the application. See Running the app during development, above.
+
+- Serve the application: run `npm start`.
+- In a separate console run the end2end tests: `npm run protractor`. Protractor will execute the
+  end2end test scripts against the web application itself.
+  - The configuration is set up to run the tests on Chrome directly. If you want to run against
+    other browsers then you must install the webDriver, `npm run update-webdriver`, and modify the
+  configuration at `test/protractor-conf.js`.
