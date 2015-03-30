@@ -1,4 +1,6 @@
 {
+    "price": 111,
+    "oldPrice": 321,
     "additionalFeatures": "Swype", 
     "android": {
         "os": "Android 2.1", 

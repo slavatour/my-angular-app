@@ -1,5 +1,6 @@
 {
-    "additionalFeatures": "Trackball Navigation Control", 
+    "price": 231,
+    "additionalFeatures": "Trackball Navigation Control",
     "android": {
         "os": "Android 2.2", 
         "ui": ""

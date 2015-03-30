@@ -1,5 +1,6 @@
 {
-    "additionalFeatures": "Swype", 
+    "price": 221,
+    "additionalFeatures": "Swype",
     "android": {
         "os": "Android 2.1", 
         "ui": "TouchWiz"

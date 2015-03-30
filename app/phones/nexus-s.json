@@ -1,5 +1,6 @@
 {
-    "additionalFeatures": "Contour Display, Near Field Communications (NFC), Three-axis gyroscope, Anti-fingerprint display coating, Internet Calling support (VoIP/SIP)", 
+    "price": 550,
+    "additionalFeatures": "Contour Display, Near Field Communications (NFC), Three-axis gyroscope, Anti-fingerprint display coating, Internet Calling support (VoIP/SIP)",
     "android": {
         "os": "Android 2.3", 
         "ui": "Android"
