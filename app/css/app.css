@@ -62,3 +62,23 @@ body {
 .cartItemsList .removeItem {
     margin-top: 35px;
 }
+
+.productThumbnail {
+    -webkit-transition: 1s;
+}
+
+.productThumbnail.ng-enter {
+    opacity: 0;
+
+}
+.productThumbnail.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+.productThumbnail.ng-leave {
+    opacity: 1;
+}
+.productThumbnail.ng-leave.ng-leave.ng-leave-active {
+    opacity: 0;
+}
+
+

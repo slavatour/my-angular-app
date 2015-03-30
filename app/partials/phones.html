@@ -26,7 +26,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-4" ng-repeat="phone in phones | filter:filterParam | limitTo:qntProducts">
+            <div class="col-sm-6 col-md-4 productThumbnail" ng-repeat="phone in phones | filter:filterParam | limitTo:qntProducts">
                 <div class="thumbnail">
                     <span ng-class="{'label label-success': phone.stock, 'label label-danger': !phone.stock}">{{phone.stock?"yes":"no"}}</span>
                     <img class="phoneImg" src="{{phone.imageUrl}}" alt="{{phone.name}}">
@@ -46,9 +46,9 @@
                     </a>
                 </li>
 
-                <li ng-repeat="i in getPaginationArray(qntProducts)">
-                    <a href="#">{{ i +1  }}</a>
-                </li>
+                <!--<li ng-repeat="i in Array(Math.ceil(phones.length / qntProducts))">-->
+                    <!--<a href="#">{{ i +1  }}</a>-->
+                <!--</li>-->
 
                 <li>
                     <a href="#" aria-label="Next">

@@ -1,5 +1,6 @@
 controllers.controller('ProductsListController', ['$scope', '$http', function($scope, $http){
     $scope.qntProducts = 5;
+    $scope.qntProductsArray = [5, 10, 20];
     $scope.currentPage = 0;
     $scope.currentList = [];
     $scope.Math = window.Math;

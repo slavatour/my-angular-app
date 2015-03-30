@@ -2,6 +2,7 @@
 
 var app = angular.module('app', [
     'ngRoute',
+    'ngAnimate',
     'controllers'
 ])
 .config(['$routeProvider', function($routeProvider){
