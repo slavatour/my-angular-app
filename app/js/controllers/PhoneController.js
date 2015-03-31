@@ -7,8 +7,6 @@ controllers.controller('PhoneController',
         $http.get('phones/'+ $routeParams.id + '.json').then(
             function(responce) {
                 $scope.product = responce.data;
-                $scope.product.price = 123;
-                $scope.product.oldPrice = 250;
                 $scope.product.quantity = 1;
             },
             function(error){

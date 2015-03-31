@@ -22,6 +22,6 @@ controllers.controller('ProductsListController', ['$scope', '$http', function($s
     };
 
     $scope.changeQuantity = function(){
-        $scope.$apply();
+
     }
 }]);
