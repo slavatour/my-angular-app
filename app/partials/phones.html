@@ -45,11 +45,10 @@
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
-                <div build-pagination pagination-number="Math.ceil(phones.length / qntProducts)"></div>
-                <!--<li ng-repeat="i in Array(Math.ceil(phones.length / qntProducts))">-->
-                    <!--<a href="#">{{ i +1  }}</a>-->
-                <!--</li>-->
-
+                <!--<div build-pagination pagination-number="Math.ceil(phones.length / qntProducts)"></div>-->
+                <li ng-repeat="i in [0,1,2,3,4,5,6,7,8,9,10,11] | limitTo:qntProducts-1">
+                    <a href="#">{{ i + 1  }}</a>
+                </li>
                 <li>
                     <a href="#" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>

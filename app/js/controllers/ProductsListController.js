@@ -1,4 +1,4 @@
-controllers.controller('ProductsListController', ['$scope', '$http', function($scope, $http){
+controllers.controller('ProductsListController', ['$scope', '$http', '$filter', function($scope, $http, $filter){
     $scope.qntProducts = 5;
     $scope.qntProductsArray = [5, 10, 20];
     $scope.currentPage = 0;
@@ -21,7 +21,10 @@ controllers.controller('ProductsListController', ['$scope', '$http', function($s
         return paginationArray;
     };
 
-    $scope.changeQuantity = function(){
-
+    $scope.changeQuantity = function(e){
+        console.log($scope.qntProducts);
+        var f = $filter('somefilter');
+        f([0,1,2,3,4,5,6,7,8,9]);
+        $scope.paginationArray = $scope.getPaginationArray($scope.qntProducts);
     }
 }]);

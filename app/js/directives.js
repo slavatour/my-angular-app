@@ -8,13 +8,15 @@ app.directive('buildPagination', [function(){
         compile: function (tElement, tAttrs, transclude) {
             console.log();
             return {
-                pre: function preLink(scope, iElement, iAttrs, controller) {
-                    scope.number = 1;
-                },
-                post: function postLink(scope, iElement, iAttrs, controller) {
-
-                }
+                post: createPagination
             }
         }
     };
 }]);
+
+function createPagination (scope, iElement, iAttrs, controller) {
+    scope.$watch('qntProducts', function(newValue, oldValue){
+        console.log(newValue);
+        console.log(oldValue);
+    });
+}
