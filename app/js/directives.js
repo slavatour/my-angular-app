@@ -2,14 +2,18 @@
 
 app.directive('buildPagination', [function(){
     return {
-        template:"<h1>Hello!!!</h1>",
+        templateUrl: 'partials/components/paginationComponents.html',
         restrict: 'AE',
-        scope : {
-            paginationNumber: '='
-        },
-        link: function($scope, $element, $attrs) {
-            for (var i=0; i < $attrs.buildPagination; i++) {
+        replace: true,
+        compile: function (tElement, tAttrs, transclude) {
+            console.log();
+            return {
+                pre: function preLink(scope, iElement, iAttrs, controller) {
+                    scope.number = 1;
+                },
+                post: function postLink(scope, iElement, iAttrs, controller) {
 
+                }
             }
         }
     };
