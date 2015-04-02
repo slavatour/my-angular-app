@@ -24,7 +24,7 @@
                     </div>
                     <h4 class="col-sm-2">{{ item.price * item.quantity | currency }}</h4>
                     <div class="col-sm-1 removeItem">
-                        <a class="hovered text-muted" ng-click="removeItem(item.id)">
+                        <a class="hovered text-muted" ng-click="removeItem(item)">
                             <i class="fa fa-times fa-lg"></i>
                         </a>
                     </div>
@@ -38,7 +38,7 @@
         </div>
     </div>
     <hr/>
-    <form class="form-horizontal col-md-12" name="userForm" ng-submit="submitCart()">
+    <form class="userForm form-horizontal col-md-12" name="userForm" ng-submit="submitCart()">
 
         <div class="form-group has-feedback"
              ng-class="{'has-error': userForm.userSurname.$error.minlength,
@@ -47,14 +47,18 @@
             <div class="col-sm-6">
                 <input type="text"
                        id="inputSurname"
-                       class="form-control"
+                       class="form-control hasPopover"
                        name="userSurname"
                        placeholder="surname"
                        ng-model="order.user.surname"
                        ng-trim="true"
                        ng-minlength="2"
                        aria-describedby="inputErrorStatusSurname"
-                        required="true">
+                       required="true"
+                       data-container="body"
+                       data-toggle="popover"
+                       data-trigger="focus"
+                       data-content="And here's some amazing content. It's very engaging. Right?">
                 <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" ng-show="userForm.userSurname.$error.minlength"></span>
                 <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" ng-show="!userForm.userSurname.$error.required && !userForm.userSurname.$error.minlength"></span>
                 <span id="inputErrorStatusSurname" class="sr-only">(error)</span>
@@ -70,14 +74,18 @@
             <div class="col-sm-6">
                 <input type="text"
                        id="inputName"
-                       class="form-control"
+                       class="form-control hasPopover"
                        name="userName"
                        placeholder="name"
                        ng-model="order.user.name"
                        ng-trim="true"
                        ng-minlength="5"
                        aria-describedby="inputErrorStatusName"
-                       required="true">
+                       required="true"
+                       data-container="body"
+                       data-toggle="popover"
+                       data-trigger="focus"
+                       data-content="And here's some amazing content. It's very engaging. Right?">
                 <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" ng-show="userForm.userName.$error.minlength"></span>
                 <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" ng-show="!userForm.userName.$error.required && !userForm.userName.$error.minlength"></span>
                 <span id="inputErrorStatusName" class="sr-only">(error)</span>
@@ -93,14 +101,18 @@
             <div class="col-sm-6">
                 <input type="text"
                        id="inputAddress"
-                       class="form-control"
+                       class="form-control hasPopover"
                        name="userAddress"
                        placeholder="address"
                        ng-model="order.user.address"
                        ng-trim="true"
                        ng-minlength="10"
                        aria-describedby="inputErrorStatusAddress"
-                       required="true">
+                       required="true"
+                       data-container="body"
+                       data-toggle="popover"
+                       data-trigger="focus"
+                       data-content="And here's some amazing content. It's very engaging. Right?">
                 <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" ng-show="userForm.userAddress.$error.minlength"></span>
                 <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" ng-show="!userForm.userAddress.$error.required && !userForm.userAddress.$error.minlength"></span>
                 <span id="inputErrorStatusAddress" class="sr-only">(error)</span>

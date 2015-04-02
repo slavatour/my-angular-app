@@ -1,30 +1,20 @@
-controllers.controller('ProductsListController', ['$scope', '$http', '$filter', function($scope, $http, $filter){
-    $scope.qntProducts = 5;
-    $scope.qntProductsArray = [5, 10, 20];
-    $scope.currentPage = 0;
+controllers.controller('ProductsListController', ['$scope', '$http', '$filter', function($scope, $http){
+    $scope.qntProducts = 20;
     $scope.currentList = [];
     $scope.Math = window.Math;
-    $scope.paginationArray = [];
+    var pagination = $scope.pagination = {
+        currentPage: 1,
+        qntPages: null
+    };
 
     $http.get("phones/phones.json").success(function(data){
         $scope.phones = data;
-        $scope.paginationArray = $scope.getPaginationArray($scope.qntProducts);
+        pagination.qntPages = Math.ceil(data.length/$scope.qntProducts);
+        console.log(pagination);
     });
 
-    $scope.getPaginationArray = function(qntProducts) {
-        var paginationArray= [];
-        var length = $scope.phones ? $scope.phones.length : 0;
-        $scope.maxPages = Math.ceil(length / qntProducts);
-        for(var i=0; i < $scope.maxPages; i++) {
-            paginationArray.push(i);
-        }
-        return paginationArray;
-    };
-
-    $scope.changeQuantity = function(e){
-        console.log($scope.qntProducts);
-        var f = $filter('somefilter');
-        f([0,1,2,3,4,5,6,7,8,9]);
-        $scope.paginationArray = $scope.getPaginationArray($scope.qntProducts);
+    $scope.onQntProductsChange = function() {
+        pagination.qntPages = Math.ceil($scope.phones.length/$scope.qntProducts);
+        console.log(pagination);
     }
 }]);

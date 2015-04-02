@@ -5,10 +5,10 @@ controllers.controller('CartController', ['$rootScope', '$scope', function($root
         {id:2, continent:'europe'}
     ];
     var cart = $rootScope.cart || {};
-
+    $('.userForm .hasPopover').popover()
     $scope.setTotalPrice = function() {
+        $scope.totalPrice = 0;
         if(cart.items && cart.items.length) {
-            $scope.totalPrice = 0;
             angular.forEach(cart.items, function(item){
                 $scope.totalPrice += (item.price * item.quantity);
             });
@@ -19,10 +19,10 @@ controllers.controller('CartController', ['$rootScope', '$scope', function($root
         console.log("submit", $scope.order);
     };
 
-    $scope.removeItem = function(id){
-        angular.forEach(cart.items, function (item, key) {
-            item.id === id && delete cart.items[key];
-        });
+    $scope.removeItem = function(item){
+        var index = cart.items.indexOf(item);
+        cart.items.splice(index, 1);
+        $scope.setTotalPrice();
     };
 
     $scope.setTotalPrice();
